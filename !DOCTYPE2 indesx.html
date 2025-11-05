@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LevelUp Guides - Requerimientos No Funcionales</title>
+    <style>
+        /* --- Estilos CSS (Idénticos al archivo funcionales.html) --- */
+        :root {
+            --color-principal: #1A1A2E; 
+            --color-secundario: #0F3460; 
+            --color-acento-xp: #E94560; 
+            --color-texto-claro: #E0F7FA; 
+            --color-guia-card: #2E2E4A; 
+            --color-borde-funcional: #38E53C; 
+            --color-borde-no-funcional: #FFD700; 
+            --color-prioridad-imp: #E53935; 
+            --color-prioridad-opc: #1E88E5; 
+            --color-metadata: #BDBDBD; 
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif; 
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-principal);
+            color: var(--color-texto-claro);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .header {
+            background-color: var(--color-secundario);
+            padding: 15px 5%;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 55px; 
+            height: 55px;
+            border-radius: 12px;
+            margin-right: 15px;
+            box-shadow: 0 0 15px rgba(233, 69, 96, 0.4); 
+        }
+
+        .app-name {
+            font-size: 2.2em;
+            font-weight: 800;
+            color: var(--color-acento-xp);
+            letter-spacing: 1px;
+        }
+
+        .app-name span {
+            color: var(--color-texto-claro);
+            font-weight: 400; 
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 40px auto;
+            padding: 0 25px;
+        }
+
+        h1 {
+            color: var(--color-borde-no-funcional); 
+            border-bottom: 4px solid var(--color-acento-xp);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-align: center;
+        }
+
+        /* --- Estilos de Navegación --- */
+        .nav-links {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .nav-button {
+            text-decoration: none;
+            padding: 12px 25px; 
+            border-radius: 10px;
+            margin: 0 15px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 1.1em;
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            /* Importante para iframes: abre el enlace en la ventana principal */
+            target: "_top";
+        }
+
+        /* Estilo para el botón NO ACTIVO (borde) */
+        .nav-button {
+            background-color: transparent;
+            color: var(--color-acento-xp);
+            border: 2px solid var(--color-acento-xp);
+        }
+        .nav-button:hover {
+            background-color: rgba(233, 69, 96, 0.1);
+        }
+
+        /* Estilo para el botón ACTIVO (relleno rojo) */
+        .nav-links .active {
+            background-color: var(--color-acento-xp);
+            color: var(--color-principal);
+            border: 2px solid var(--color-acento-xp);
+            box-shadow: 0 6px 10px rgba(233, 69, 96, 0.5);
+        }
+        
+        /* --- Estilos de las Tarjetas (No Funcionales) --- */
+        .requerimiento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .req-card {
+            background-color: var(--color-guia-card);
+            padding: 25px; 
+            border-radius: 12px;
+            border-left: 6px solid var(--color-borde-no-funcional); /* Amarillo/Oro */
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .req-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        .req-card h3 {
+            color: var(--color-acento-xp);
+            margin-top: 0;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+
+        .req-card p {
+            margin: 8px 0;
+            font-size: 0.95em;
+            color: var(--color-texto-claro);
+        }
+
+        .req-card strong {
+            color: var(--color-texto-claro);
+            font-weight: 600;
+        }
+
+        @media (max-width: 480px) {
+            .requerimiento-grid { grid-template-columns: 1fr; }
+            .nav-links { display: flex; flex-direction: column; }
+            .nav-button { margin: 5px 0; }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="header">
+        <div class="logo-container">
+             <img src="image_26d3e3.png" alt="LevelUp Guides Logo" class="logo">
+            <div class="app-name">
+                LEVELUP <span>GUIDES</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        
+        <div class="nav-links">
+            <a href="requerimientos_funcionales.html" id="link-funcionales" class="nav-button">✅ Funcionales</a>
+            <a href="requerimientos_no_funcionales.html" id="link-no-funcionales" class="nav-button">⚙️ No Funcionales</a>
+        </div>
+        <h1>⚙️ Requerimientos No Funcionales (RNF)</h1>
+        
+        <div class="requerimiento-grid">
+            
+            <div class="req-card">
+                <h3>RNF001: Rendimiento de Carga</h3>
+                <p><strong>Categoría:</strong> Rendimiento</p>
+                <p><strong>Descripción:</strong> Páginas deben cargar en **<3 segundos**; respuestas de usuario en **<500 milisegundos**.</p>
+            </div>
+
+            <div class="req-card">
+                <h3>RNF002: Disponibilidad y Escalabilidad</h3>
+                <p><strong>Categoría:</strong> Fiabilidad/Escalabilidad</p>
+                <p><strong>Descripción:</strong> Disponible el **99.5%** del tiempo; soporta aumento de **200%** de usuarios sin degradación.</p>
+            </div>
+
+            <div class="req-card">
+                <h3>RNF003: Seguridad del Sistema</h3>
+                <p><strong>Categoría:</strong> Seguridad</p>
+                <p><strong>Descripción:</strong> Autenticación **HTTPS**, contraseñas **cifradas**, protección de datos personales (GDPR).</p>
+            </div>
+
+            <div class="req-card">
+                <h3>RNF004: Compatibilidad Móvil</h3>
+                <p><strong>Categoría:</strong> Compatibilidad</p>
+                <p><strong>Descripción:</strong> Funcional y coherente en **navegadores web modernos** y **dispositivos móviles**.</p>
+            </div>
+
+            <div class="req-card">
+                <h3>RNF005: Soporte Multilenguaje</h3>
+                <p><strong>Categoría:</strong> Usabilidad</p>
+                <p><strong>Descripción:</strong> Soporte para **múltiples idiomas** y detección automática del idioma del sistema.</p>
+            </div>
+
+            <div class="req-card">
+                <h3>RNF006: Experiencia de Usuario (UX)</h3>
+                <p><strong>Categoría:</strong> Usabilidad</p>
+                <p><strong>Descripción:</strong> Experiencia **fluida e intuitiva**, interfaz **visualmente atractiva** y coherente.</p>
+            </div>
+            
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('link-no-funcionales').classList.add('active');
+            document.getElementById('link-funcionales').classList.remove('active');
+        });
+    </script>
+
+</body>
+</html>
